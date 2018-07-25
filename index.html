@@ -13,36 +13,6 @@
     <script src="https://cdn.rawgit.com/takahirox/aframe-outline/v1.1.1/build/aframe-outline.min.js"></script>
     <script src="https://cdn.rawgit.com/takahirox/a-mmd/v1.0.3/build/a-mmd.min.js"></script>
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
-    <script>
-        navigator.mediaDevices.enumerateDevices().then(function (devices) {
-            devices = devices.filter(function (devices) {
-                return devices.kind === 'videoinput';
-            });
-            var videoinput_id = '';
-            devices.forEach(function (device) {
-                if (device.label.toLowerCase().search("back") & gt; - 1) {
-                    videoinput_id = device.deviceId;
-                }
-            });
-            if (videoinput_id != '') {
-                navigator.mediaDevices.getUserMedia({
-                    video: {
-                        deviceId: {
-                            'exact': videoinput_id
-                        },
-                        facingMode: 'environment'
-                    }
-                }).then(successCallback);
-            } else {
-                navigator.mediaDevices.getUserMedia({
-                    video: {
-                        facingMode: 'environment'
-                    }
-                }).then(successCallback);
-            }
-
-        });
-    </script>
 </head>
 
 <body style='margin : 0px; overflow: hidden;'>
